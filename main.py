@@ -6,9 +6,21 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
-@app.route("/kontakti")
-def kontakti():
-    return "<html><h1>Kas te notiek??<h1><html>"
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/my_projects")
+def my_projects():
+    return render_template("my_projects.html")
+
+@app.route("/form")
+def form():
+    return render_template("form.html")
+    
+@app.route("/form_results")
+def form_results():
+    return render_template("form_results.html")
 
 if __name__ == "__main__":
-    app.run(port=80, debug=True)
+    app.run(port=5000, debug=True)
