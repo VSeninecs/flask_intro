@@ -6,10 +6,10 @@
 
 {% block saturs %}
 <h1>Uzraksti man</h1>
-    <form>
+    <form method="POST" action="/postData">
         <div class="row g-3">
             <div class="col">
-              <input type="text" class="form-control" placeholder="Vārds">
+              <input type="text" class="form-control" placeholder="Vārds" name="vards">
             </div>
             <div class="col">
               <input type="text" class="form-control" placeholder="Uzvārds">
