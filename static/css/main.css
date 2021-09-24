@@ -46,11 +46,20 @@ form {
     transform: scale(1.1);
 }
 
-.profile_picture {
+#profile-picture {
     width: 30%;
     min-width: 250px;
 }
 
-.about {
+#about {
     text-align: center;
+}
+
+#in-form {
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+.extra-padding {
+    padding-bottom: 10px;
 }

@@ -29,8 +29,18 @@ def postData():
     if request.method == "GET":
         return redirect("/")
     elif request.method == "POST":
-        vards = request.form.get("vardss")
-        pievienot(vards)
+        vards = request.form.get("vards")
+        uzvards = request.form.get("uzvards") 
+        epasts = request.form.get("epasts")
+        if request.form.get("atbilde") == None: 
+            atbilde = "Nē"
+        else:
+            atbilde = "Jā"
+        zina = request.form.get("zina").replace("\n", "")
+
+        information = [vards, uzvards, epasts, atbilde, zina]
+        pievienot(information)
+            
         return redirect("/form")
     else:
         return "Kas te notiek?"

@@ -5,36 +5,34 @@
 {% block lapa %} - Anketa {% endblock %}
 
 {% block saturs %}
-<h1>Uzraksti man</h1>
-    <form method="POST" action="/postData">
-        <div class="row g-3">
-            <div class="col">
-              <input type="text" class="form-control" placeholder="Vārds" name="vards">
-            </div>
-            <div class="col">
-              <input type="text" class="form-control" placeholder="Uzvārds">
-            </div>
-        </div>
+
+    <h1>Uzraksti man</h1>
+    <form method="POST", action="/postData">
         <div class="mb-3">
+            <div class="row" id="in-form">
+                <div class="col">
+                    <label for="vards" class="form-label">Vārds</label>
+                    <input type="text" class="form-control" name='vards'>
+                </div>
+                <div class="col">
+                    <label for="uzvards" class="form-label">Uzvārds</label>
+                    <input type="text" class="form-control" name='uzvards'>
+                </div>
+            </div>
+
             <label for="exampleInputEmail1" class="form-label">Epasts</label>
-            <input type="email" class="form-control" id="exampleInputEmail1">
-            <div id="emailHelp" class="form-text">Tavs epasts ir drošībā!</div>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-                Vai vēlies, lai es Tev atbildu?
-            </label>
-          </div>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Tēma</option>
-            <option value="1">Koki</option>
-            <option value="2">Citi koki</option>
-            <option value="3">Koks</option>
-          </select>
-        <div class="mb-3">
+            <input type="email" class="form-control" id="exampleInputEmail1" name=epasts>
+            <div id="emailHelp" class="form-text extra-padding">Pssst.... Tavs epasts ir drošībā!</div>
+
+            <div class="form-check extra-padding">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name='atbilde'>
+                <label class="form-check-label" for="flexCheckDefault">
+                    Vai vēlies, lai es Tev atbildu?
+                </label>
+            </div>
+
             <label for="exampleFormControlTextarea1" class="form-label">Ziņa</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name='zina'></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Nosūtīt</button>
     </form>
