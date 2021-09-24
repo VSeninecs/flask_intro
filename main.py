@@ -18,11 +18,8 @@ def my_projects():
 
 @app.route("/form")
 def form():
-    return render_template("form.html")
-    
-@app.route("/form_results")
-def form_results():
-    return render_template("form_results.html")
+    status = request.args.get('status')
+    return render_template("form.html", veiksmigi = status)
 
 @app.route("/postData", methods = ["POST", "GET"])
 def postData():
@@ -41,9 +38,14 @@ def postData():
         information = [vards, uzvards, epasts, atbilde, zina]
         pievienot(information)
             
-        return redirect("/form")
+        return redirect("/form?status=1")
     else:
         return "Kas te notiek?"
+
+# @app.route("/lasitDatus")
+# def lasitDatus():
+    # rindinas = lasitRindinas()
+    # return render_template("form_results.html", rindinas = rindinas)
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)

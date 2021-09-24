@@ -7,7 +7,13 @@
 {% block saturs %}
 
     <h1>Uzraksti man</h1>
-    <form method="POST", action="/postData">
+    {% if veiksmigi == '1' %}     
+        <div class="alert alert-success" role="alert">
+            Ziņa nosūtīta!
+        </div> 
+    {% endif %}
+
+    <form method="POST", action="/postData" autocomplete="off" >
         <div class="mb-3">
             <div class="row" id="in-form">
                 <div class="col">
@@ -27,12 +33,12 @@
             <div class="form-check extra-padding">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name='atbilde'>
                 <label class="form-check-label" for="flexCheckDefault">
-                    Vai vēlies, lai es Tev atbildu?
+                    Vai vēlies, lai es Tev atbildu uz norādīto epastu?
                 </label>
             </div>
 
             <label for="exampleFormControlTextarea1" class="form-label">Ziņa</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name='zina'></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name='zina' required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Nosūtīt</button>
     </form>
