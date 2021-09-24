@@ -2,21 +2,33 @@
 
 {% block lapa %} - Anketu rezultāti {% endblock %}
 
-<h2>Anketu rezultāti</h2>
+{% block saturs %}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Vārds</th>
-            <th>Uzvārds</th>
-            <th>E-pasts</th>
-            <th>Sagaida atbildi?</th>
-            <th>Ziņa</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            
-        </tr>
-    </tbody>
-</table>
+    <h2>Anketu rezultāti</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Vārds</th>
+                <th>Uzvārds</th>
+                <th>E-pasts</th>
+                <th>Sagaida atbildi?</th>
+                <th>Ziņa</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        {% for rindina in rindinas %}
+            <tr>
+                <td>{{ rindina[0] }}</td>
+                <td>{{ rindina[1] }}</td>
+                <td>{{ rindina[2] }}</td>
+                <td>{{ rindina[3] }}</td>
+                <td>{{ rindina[4] }}</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}

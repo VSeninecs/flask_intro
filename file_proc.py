@@ -3,11 +3,12 @@ FILE_NAME = "DATA.txt"
 def pievienot(rindina):
     f = open(FILE_NAME, "a", encoding="utf-8")
     for rinda in rindina:
-        f.write(rinda + "\n")
-
-    f.write("Ziņas beigas" + "\n")
+        f.write(rinda + "`")
+    f.write('\n')
     f.close()
 
-def lasīt():
-    with open(FILE_NAME, r, encoding="uth-8") as f:
-        rindinas = f.readlines()
+def lasit():
+    f = open(FILE_NAME, "r", encoding="utf-8")
+    rindinas = f.readlines()
+    return rindinas
+    f.close()

@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request
-from werkzeug.utils import redirect
-from file_proc import pievienot
+from flask import Flask, render_template, request, redirect
+from file_proc import pievienot, lasit
 
 app = Flask(__name__)
 
@@ -27,8 +26,9 @@ def postData():
         return redirect("/")
     elif request.method == "POST":
         vards = request.form.get("vards")
-        uzvards = request.form.get("uzvards") 
+        uzvards = request.form.get("uzvards")
         epasts = request.form.get("epasts")
+        # print(request.form.get("atbilde"))
         if request.form.get("atbilde") == None: 
             atbilde = "Nē"
         else:
@@ -42,10 +42,16 @@ def postData():
     else:
         return "Kas te notiek?"
 
-# @app.route("/lasitDatus")
-# def lasitDatus():
-    # rindinas = lasitRindinas()
-    # return render_template("form_results.html", rindinas = rindinas)
-
+@app.route("/form_results")
+def lasitDatus():
+    rindinas = lasit()
+    dati = []
+    for rindina in rindinas:
+        ieraksts = rindina.split("`")
+        dati.append(ieraksts)
+    return render_template("form_results.html", rindinas = dati)
+    
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
+
+
